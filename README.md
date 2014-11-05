@@ -16,6 +16,6 @@ SA-MP plugin / mod to share mods between server and client
       if not the client download files and do the standart program.
       
       
-    After the game execution, original files are replaced etc.
-    So, the client doesn't see anything !  
+  After the game execution, original files are replaced etc.
+  So, the client doesn't see anything !  
   
