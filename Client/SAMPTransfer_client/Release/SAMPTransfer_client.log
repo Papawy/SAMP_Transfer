@@ -1,4 +1,8 @@
 ﻿  Client.cpp
+  dllmain.cpp
+  FileLogger.cpp
+  Utils.cpp
+Utils.cpp(27): warning C4244: 'initialisation' : conversion de 'std::streamoff' en 'int', perte possible de données
   Génération de code en cours
   Fin de la génération du code
-  SAMPTransfer_client.vcxproj -> M:\Programmation\SampPlugins\SAMPTransfer\Release\SAMPTransfer_client.asi
+  SAMPTransfer_client.vcxproj -> M:\Programmation\SampPlugins\SAMP_Transfer\Client\Release\SAMPTransfer_client.asi

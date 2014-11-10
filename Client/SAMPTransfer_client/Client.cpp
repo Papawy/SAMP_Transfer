@@ -15,57 +15,21 @@ Client::~Client()
 bool Client::readCommandLine(std::string line)
 {
 	m_fileLog.log(line);
-	/*for (int i = 0; i < (int)line.length(); i++)
+
+	m_cmdReader.readLine(line);
+	m_fileLog.log("Getting infos from command line...");
+	m_sampServerIp = m_cmdReader.getArgumentValue(SAMP_PARAM_ADDRESS);
+	m_fileLog.log("Getting ip : " + m_sampServerIp.toString());
+	if (Utils::from_string<unsigned short>(m_sampServerPort, m_cmdReader.getArgumentValue(SAMP_PARAM_PORT), std::dec) == false)
 	{
-		if (line[i] == '-')
-		{
-			i++;
-			if (line[i] == 'h')
-			{
-				m_fileLog.log("host finded : ");
-				i++;
-				
-				std::string tmpIp;
-				for (i; i < (int)line.length(); i++)
-				{
-					if (line[i] == ' ')
-					{
-						m_fileLog.log("break : " + std::to_string(i));
-						break;
-					}
-					tmpIp += line[i];
-					m_fileLog.log("adding : " + line[i]);
-				}
-				m_fileLog.log(tmpIp);
-				m_sampServerIp = tmpIp;
-			
-			}
-
-			if (line[i] == 'p')
-			{
-				m_fileLog.log("port finded");
-				i++;
-				std::string tmpPort;
-				for (i; i < (int)line.length(); i++)
-				{
-					if (line[i] == ' ')
-					{
-						break;
-					}
-					tmpPort += line[i];
-				}
-				m_fileLog.log(tmpPort);
-				if (Utils::from_string<unsigned short>(m_sampServerPort, tmpPort, std::dec))
-				{
-					return false;
-				}
-			}
-		}
-	}*/
-
-
-
-	m_fileLog.log("Ip : " + m_sampServerIp.toString() + " Port : " + std::to_string(m_sampServerPort));
+		m_fileLog.log("Fail while converting string to unsigned short.");
+	}
+	m_fileLog.log("Getting port : " + std::to_string(m_sampServerPort));
+	if (m_cmdReader.argumentExist(SAMP_PARAM_PASS))
+	{
+		m_sampServerPass = m_cmdReader.getArgumentValue(SAMP_PARAM_PASS);
+		m_fileLog.log("Getting server password : " + m_sampServerPass);
+	}
 	return true;
 }
 

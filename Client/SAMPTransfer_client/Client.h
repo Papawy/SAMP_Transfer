@@ -1,18 +1,10 @@
 #pragma once
 
-#include <iostream>
 #include <vector>
 
 #include <SFML\Network.hpp>
 
 #include "Utils.h"
-
-#define SAMP_PARAM_DEBUG "d"
-#define SAMP_PARAM_CONNECT "c"
-#define SAMP_PARAM_UNAME "n"
-#define SAMP_PARAM_ADDRESS "h"
-#define SAMP_PARAM_PORT "p"
-#define SAMP_PARAM_PASS "z"
 
 class Client
 {
@@ -47,6 +39,7 @@ private:
 
 	sf::IpAddress	m_sampServerIp;
 	unsigned short	m_sampServerPort;
+	std::string		m_sampServerPass;
 
 	sf::IpAddress	m_ftpServerIp;
 	unsigned short	m_ftpServerPort;
@@ -54,4 +47,6 @@ private:
 	std::vector<FileDL> m_filesToDL;
 
 	Utils::FileLogger	m_fileLog;
+
+	Utils::CommandLineReader m_cmdReader;
 };

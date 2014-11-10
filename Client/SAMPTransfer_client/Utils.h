@@ -1,8 +1,10 @@
-#include <iostream>
+#pragma once
+
 #include <fstream>
 #include <sstream>
 
 #include "FileLogger.h"
+#include "CommandLineReader.h"
 
 namespace Utils
 {
